@@ -128,6 +128,10 @@ def depth_first_graph_search(problem):
     return graph_search(problem, Stack())
 
 
+def ramification_graph_search(problem):
+    return graph_search(problem, SortedList())
+
+
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
