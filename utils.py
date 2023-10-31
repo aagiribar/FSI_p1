@@ -545,27 +545,26 @@ class FIFOQueue(Queue):
         return e
 
 
-def path_cost(node):
-    return node.path_cost
-
-
 class SortedList:
     def __init__(self):
         self.A = []
 
     def append(self, item):
         self.A.append(item)
-        self.A.sort(key=path_cost, reverse=True)
+        self.sort()
 
     def extend(self, items):
-        for item in items:
-            self.append(item)
+        self.A.extend(items)
+        self.sort()
 
     def pop(self):
         return self.A.pop()
 
     def __len__(self):
         return len(self.A)
+
+    def sort(self):
+        self.A.sort(key=lambda n: n.path_cost, reverse=True)
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
