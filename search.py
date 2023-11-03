@@ -97,7 +97,7 @@ def graph_search(problem, fringe):
     """Search through the successors of a problem to find a goal.
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
-    nodos_generados = 0
+    nodos_generados = 1
     nodos_visitados = 0
     closed = {}
     fringe.append(Node(problem.initial))
@@ -128,8 +128,12 @@ def depth_first_graph_search(problem):
     return graph_search(problem, Stack())
 
 
-def ramification_graph_search(problem):
+def branch_and_bound_graph_search(problem):
     return graph_search(problem, SortedList())
+
+
+def branch_and_bound_with_heuristic_graph_search(problem):
+    return graph_search(problem, SortedListWithHeuristic(problem))
 
 
 

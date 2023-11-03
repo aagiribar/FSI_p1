@@ -1,4 +1,4 @@
-
+import math
 #______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
 import search
@@ -565,6 +565,15 @@ class SortedList:
 
     def sort(self):
         self.A.sort(key=lambda n: n.path_cost, reverse=True)
+
+
+class SortedListWithHeuristic(SortedList):
+    def __init__(self, problem):
+        super(SortedListWithHeuristic, self).__init__()
+        self.problem = problem
+
+    def sort(self):
+        self.A.sort(key=lambda n: n.path_cost + self.problem.h(n), reverse=True)
 
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
